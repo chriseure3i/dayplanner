@@ -1,7 +1,3 @@
-// Author: Madhumitha Prabakaran
-
-// Declare variables
-
 let timeNow = moment().format('dddd, MMMM Do YYYY');
 let hourNow = moment().format('h');
 let hourNow24= parseInt(moment().format('HH'));
@@ -157,6 +153,6 @@ function colorCoding() {
   }
   else {
     clearInterval(TIMER);
-    $('textarea').css('background-color', 'pink');
+    $('textarea').css('background-color', 'lightgrey');
   }
 }
