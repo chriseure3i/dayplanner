@@ -21,3 +21,21 @@ var updateDayText = function(currentDay) {
     $("#last-day").prop('disabled', false)
 }
 }
+
+var createHours = function() {
+  $(".container").empty()
+  var hourNum = 11;
+  for (i = 7; i < hourNum+7; i++) {
+      var timeOfDay = currentDay.startOf('day').add(i, "hour")
+      createHourRow(timeOfDay)
+  }
+}
+
+var createHourRow = function(timeOfDay)  {
+  var hourRow = $("<div>").addClass("row")
+  var hourText = $("<div>").addClass("col-2 col-sm-1 time-block hour").text(timeOfDay.format('hA'))
+  var hourTask = createHourTask(timeOfDay)
+  var hourSave = createSaveBtn()
+  hourRow.append(hourText, hourTask, hourSave)
+  $(".container").append(hourRow)
+}
