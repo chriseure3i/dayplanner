@@ -39,3 +39,22 @@ var createHourRow = function(timeOfDay)  {
   hourRow.append(hourText, hourTask, hourSave)
   $(".container").append(hourRow)
 }
+
+var createHourTask = function(timeOfDay) {
+  
+  var hourTask = $("<textarea>").addClass("col-8 col-sm-10 description")
+
+  hourTask.addClass(pastPresentFuture(timeOfDay))
+
+  var currentDayKey = currentDay.format("MMMDDYYYY")
+  if (currentDayKey in plannerObj) {
+      if (timeOfDay.format('H') in plannerObj[currentDayKey]) {
+          hourTask.text(plannerObj[currentDayKey][timeOfDay.format('H')])
+      }
+  }
+  return hourTask
+}
+var createSaveBtn = function() {
+  var saveBtn = $("<span>").addClass("col-2 col-sm-1 saveBtn material-icons").text("verified")
+  return saveBtn
+}
